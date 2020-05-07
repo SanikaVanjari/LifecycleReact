@@ -8,6 +8,7 @@ import FunctionComp from './Components/FunctionComp'
 import SimpleClassComponent from './Components/SimpleClassComponent'
 import LifecycleA from './BasicLifecycle/LifecycleA'
 import Main from './Todo/Main'
+import LifeCycle from '../src/BasicLifecycle/Lifecycle'
 
 // Step 2: A simple JSX. // Step3: it is also called an element, used to built components
 const element = <h1>Hello, world!</h1>
@@ -24,7 +25,9 @@ ReactDOM.render(
   // {/* <FunctionComp name="Sanika"></FunctionComp> */}
   // {/* Can be called multip times to compose a UI */}
   // {/* <FunctionComp name="Sanika"></FunctionComp> */}
-  <Main></Main>,
+  // <Main></Main>
+  <App></App>,
+  // <LifeCycle></LifeCycle>,
   document.getElementById('root')
 
   // JSX being called in reactDom for step 2

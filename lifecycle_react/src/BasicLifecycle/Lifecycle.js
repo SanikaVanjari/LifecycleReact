@@ -1,0 +1,45 @@
+import React from 'react'
+
+class LifeCycle extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      date: new Date(),
+      clickedStatus: false,
+      list: [],
+    }
+  }
+  componentWillMount() {
+    console.log('Component will mount!')
+  }
+  componentDidMount() {
+    console.log('Component did mount!')
+    this.getList()
+  }
+  getList = () => {
+    /*** method to make api call***/
+    fetch('https://api.mydomain.com')
+      .then((response) => response.json())
+      .then((data) => this.setState({ list: data }))
+    console.log('getList')
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.list !== nextState.list
+  }
+  componentWillUpdate(nextProps, nextState) {
+    console.log('Component will update!')
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('Component did update!')
+  }
+  render() {
+    return (
+      <div>
+        <h3>Hello Mounting Lifecycle Methods!</h3>
+        {console.log('render')}
+      </div>
+    )
+  }
+}
+
+export default LifeCycle
